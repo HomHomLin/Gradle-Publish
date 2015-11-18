@@ -1,6 +1,5 @@
 group = PROJ_GROUP
 version = PROJ_VERSION
-project.archivesBaseName = PROJ_ARTIFACTID
 
 apply plugin: 'com.jfrog.bintray'
 apply plugin: "com.jfrog.artifactory"
