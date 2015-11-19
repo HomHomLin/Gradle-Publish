@@ -73,9 +73,14 @@ afterEvaluate {
     publishing.publications.mavenJava.artifact(bundleRelease)
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 bintray {
-    user = hasProperty("bintrayUser")?getProperty("bintrayUser"):getProperty("BINTRAY_USER") 
-    key = hasProperty("bintrayKey")?getProperty("bintrayKey"):getProperty("BINTRAY_KEY")
+    user = properties.getProperty("BINTRAY_USER")
+    key = properties.getProperty("BINTRAY_KEY")
+    //user = hasProperty("bintrayUser")?getProperty("bintrayUser"):getProperty("BINTRAY_USER") 
+    //key = hasProperty("bintrayKey")?getProperty("bintrayKey"):getProperty("BINTRAY_KEY")
 
     publications = ['mavenJava']
     publish = true
