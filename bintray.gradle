@@ -73,6 +73,7 @@ afterEvaluate {
     publishing.publications.mavenJava.artifact(bundleRelease)
 }
 
+// load from root project's 'local.properties'
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
@@ -112,7 +113,6 @@ artifactory {
             maven = true
         }
         defaults {
-            //这里的名字和上面红色的名字一致即可，会将其包含的输出上传到jfrog上去
             publications('mavenJava')
             publishArtifacts = true
         }
